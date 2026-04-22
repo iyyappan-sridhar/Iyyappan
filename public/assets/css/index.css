@@ -1,0 +1,154 @@
+/* Gaming Font Setup */
+*{
+    font-family:'Orbitron', sans-serif;
+    letter-spacing:1.5px;
+}
+
+/* Body background */
+body{
+    background:#0b0f1a;
+    color:#fff;
+    overflow-x:hidden;
+}
+body::before{
+    content:"";
+    position:fixed;width:200%;height:200%;
+    background:radial-gradient(circle,#00f7ff18 2%,transparent 60%);
+    animation:move 15s infinite linear;
+    z-index:-1;
+}
+@keyframes move{
+    0%{transform:translate(-10%,-10%);}
+    50%{transform:translate(10%,10%);}
+    100%{transform:translate(-10%,-10%);}
+}
+
+/* HERO */
+.hero{text-align:center;padding:150px 20px;}
+.hero h1{
+    font-size:65px;font-weight:900;color:#00eaff;
+    text-shadow:0 0 25px #00eaff,0 0 45px #00eaff;
+    animation:titleGlow 4s infinite alternate;
+}
+@keyframes titleGlow{
+    0%{text-shadow:0 0 20px #00eaff;}
+    100%{text-shadow:0 0 40px #00ffee,0 0 70px #00ffee;}
+}
+
+.hero-image img{
+    width:200px;height:200px;border-radius:50%;object-fit:cover;
+    border:3px solid #00eaff;box-shadow:0 0 20px #00eaff;
+    margin-top:25px;transition:.5s;
+}
+.hero-image img:hover{
+    transform:scale(1.08) rotate(3deg);
+    box-shadow:0 0 35px #00ffc8;
+}
+
+/* Download Button */
+.btn-download{
+    position:fixed;bottom:25px;right:25px;
+    padding:15px 35px;font-size:22px;font-weight:800;color:#000;
+    border-radius:50px;text-decoration:none;z-index:999;
+    background-size:300%;transition:.5s ease;
+    animation:btnGradient 5s infinite linear;
+}
+@keyframes btnGradient{
+    0%{background:linear-gradient(45deg,#00eaff,#00ff95,#ff00d4,#ff9900);}
+    25%{background:linear-gradient(45deg,#ff00d4,#00eaff,#ff9900,#00ff95);}
+    50%{background:linear-gradient(45deg,#00ff95,#ff9900,#00eaff,#ff00d4);}
+    75%{background:linear-gradient(45deg,#ff9900,#ff00d4,#00ff95,#00eaff);}
+    100%{background:linear-gradient(45deg,#00eaff,#00ff95,#ff00d4,#ff9900);}
+}
+.btn-download:hover{transform:scale(1.10);box-shadow:0 0 30px #00ffee;}
+
+/* Sections */
+.section{text-align:center;padding:80px 20px;}
+.section h2{
+    font-size:38px;color:#00f3ff;text-shadow:0 0 10px #00eaff;margin-bottom:18px;
+}
+
+/* Skills */
+.skills-list{
+    display:flex;flex-wrap:wrap;justify-content:center;
+    gap:12px;margin-top:20px;overflow:visible;
+}
+.skill{
+    background:#121826;border:1px solid #00eaff4d;
+    padding:12px 25px;border-radius:30px;font-size:18px;
+    box-shadow:0 0 10px #00fff555 inset;transition:.4s;
+}
+.skill:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 20px #00eaff,0 0 30px #00eaff inset;
+}
+
+/* Scatter Skill Motion */
+.skill-motion .skill{
+    position:relative;
+    animation:scatter-gather 4s infinite ease-in-out;
+}
+@keyframes scatter-gather{
+    0%{transform:translate(0,0);}
+    20%{transform:translate(calc(-50px + 100px * var(--r)),calc(-50px + 100px * var(--r2)));}
+    50%{transform:translate(calc(-80px + 160px * var(--r)),calc(-80px + 160px * var(--r2)));}
+    80%{transform:translate(calc(-30px + 60px * var(--r)),calc(-30px + 60px * var(--r2)));}
+    100%{transform:translate(0,0);}
+}
+
+/* Random Movement Points */
+.skill:nth-child(1){--r:.6;--r2:.12;} .skill:nth-child(2){--r:-.8;--r2:.9;}
+.skill:nth-child(3){--r:.3;--r2:-.9;} .skill:nth-child(4){--r:-.3;--r2:.6;}
+.skill:nth-child(5){--r:.8;--r2:-.2;} .skill:nth-child(6){--r:-.6;--r2:.4;}
+.skill:nth-child(7){--r:.4;--r2:-.7;} .skill:nth-child(8){--r:-.2;--r2:.8;}
+.skill:nth-child(9){--r:.7;--r2:-.3;} .skill:nth-child(10){--r:-.8;--r2:.2;}
+.skill:nth-child(11){--r:.5;--r2:-.6;}
+
+/* Project Box */
+.project-box{
+    max-width:700px;background:#121826;margin:15px auto;
+    padding:25px;border-radius:15px;border-left:5px solid #00eaff;
+    box-shadow:0 0 15px #00eaff4d;transition:.4s;
+}
+.project-box:hover{transform:scale(1.03);box-shadow:0 0 25px #00eaff;}
+
+footer{text-align:center;padding:40px;opacity:.7;margin-top:50px;}
+
+
+/* --------------------------------------------------------------
+📱 FINAL CLEAN RESPONSIVE - (MERGED, NO DUPLICATE)
+-------------------------------------------------------------- */
+
+/* Tablet */
+@media(max-width:992px){
+.hero h1{font-size:45px;} 
+.hero-image img{width:180px;height:180px;}
+.section{padding:60px 20px;} .section h2{font-size:30px;}
+.project-box{width:85%;padding:20px;}
+}
+
+/* Mobile */
+@media(max-width:768px){
+body{padding-bottom:90px;}
+.hero{padding:120px 15px 80px;}
+.hero h1{font-size:32px;line-height:40px;}
+.hero-image img{width:150px;height:150px;}
+.btn-download{font-size:17px;padding:12px 25px;bottom:15px;right:15px;}
+
+.section{padding:50px 15px;} .section h2{font-size:24px;}
+.skill-motion .skill,.skill{font-size:14px;padding:8px 15px;}
+.project-box{width:92%;padding:18px;}
+footer{font-size:14px;}
+}
+
+/* Small Mobile */
+@media(max-width:480px){
+.hero h1{font-size:26px;line-height:32px;}
+.hero-image img{width:120px;height:120px;}
+.btn-download{font-size:14px;padding:10px 18px;bottom:10px;right:10px;}
+
+.section{padding:40px 12px;} .section h2{font-size:20px;}
+.skill-motion .skill,.skill{font-size:12px;padding:6px 10px;}
+.project-box{padding:14px;width:95%;}
+footer{font-size:12px;}
+}
